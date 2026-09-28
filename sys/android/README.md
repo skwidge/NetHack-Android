@@ -32,6 +32,16 @@ work. If you're running Windows you're on your own.
  4. `cd ../..`
  5. `make install`
 
+This builds for `arm64-v8a`, which works on all current devices. Some newer
+devices, e.g. the Galaxy Z Fold6 or Pixel 7 and later, can only run 64-bit code.
+To build for another ABI, e.g. older 32-bit devices, pass it to make:
+`make install ABI=armeabi-v7a`. The 32-bit ABIs need `gcc-multilib`.
+
+The compiled data files depend on the target's word size, so an APK only
+supports the one ABI it was built for. Run `make spotless` before switching
+ABI. Saved games from a 32-bit build can't be loaded by a 64-bit build, and
+the reverse is also true.
+
 ### Build the Android application
 
  1. `cd /path/to/NetHack-Android/sys/android`
