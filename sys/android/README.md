@@ -19,7 +19,7 @@ work. If you're running Windows you're on your own.
  1. `cd /path/to/android-sdk/tools/bin`
  2. Update the sdk manager: `./sdkmanager --update`. If you get "NoClassDefFoundError" it's because you're not running JDK 8. Make sure the env variable `JAVA_HOME` points to JDK 8.
  3. Install the platform tools: `./sdkmanager --install "platforms;android-30"`
- 4. Install the NDK: `./sdkmanager --install "ndk;21.4.7075529"`
+ 4. Install the NDK: `./sdkmanager --install "ndk;27.3.13750724"`
 
 
 ## Build
