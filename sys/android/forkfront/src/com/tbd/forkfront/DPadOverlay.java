@@ -89,15 +89,15 @@ public class DPadOverlay
 		int loc = Integer.parseInt(val);
 		if(loc == 0)
 			return Gravity.LEFT;
-        if(loc == 1)
-        	return Gravity.CENTER;
-        if(loc == 2)
-        	return Gravity.RIGHT;
-        if(loc == 3)
+		if(loc == 1)
+			return Gravity.CENTER;
+		if(loc == 2)
+			return Gravity.RIGHT;
+		if(loc == 3)
 			return Gravity.BOTTOM | Gravity.LEFT;
-        if(loc == 4)
-        	return Gravity.BOTTOM;
-        if(loc == 5)
+		if(loc == 4)
+			return Gravity.BOTTOM;
+		if(loc == 5)
 			return Gravity.BOTTOM | Gravity.RIGHT;
 		return Gravity.CENTER;
 	}
