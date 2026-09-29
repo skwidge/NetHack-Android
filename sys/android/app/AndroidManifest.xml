@@ -12,7 +12,8 @@
 		android:icon="@drawable/icon"
 		android:largeHeap="true"
 		android:theme="@android:style/Theme"
-		android:allowBackup="true">
+		android:allowBackup="true"
+		android:enableOnBackInvokedCallback="false">
 		<activity
 			android:name="com.tbd.forkfront.ForkFront"
 			android:exported="true"
