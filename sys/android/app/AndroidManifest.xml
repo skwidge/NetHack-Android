@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.tbd.NetHack"
 	android:installLocation="auto">
-	<uses-sdk />
 	<uses-permission
 		android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -16,6 +14,7 @@
 		android:allowBackup="true">
 		<activity
 			android:name="com.tbd.forkfront.ForkFront"
+			android:exported="true"
 			android:label="NetHack"
 			android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
 			android:launchMode="singleTask"
@@ -30,6 +29,7 @@
 		</activity>
 		<activity
 			android:name="com.tbd.forkfront.Settings"
+			android:exported="false"
 			android:label="NetHack Settings">
 		</activity>
 	</application>
