@@ -80,6 +80,7 @@ public class ForkFront extends Activity
 		// takeKeyEvents(true);
 
 		setContentView(R.layout.mainwindow);
+		Insets.applyTo(findViewById(R.id.base_frame));
 
 		ensureReadWritePermissions(new RequestExternalStorageResult() {
 			@Override
