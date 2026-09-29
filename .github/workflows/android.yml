@@ -13,16 +13,16 @@ jobs:
       - uses: actions/checkout@v6
       - name: Install required packages
         run: sudo apt-get install -y gcc-multilib
-      - name: Set up JDK 8
+      - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
-           java-version: '8'
+           java-version: '17'
            distribution: 'temurin'
       - name: Setup Android SDK           
         uses: android-actions/setup-android@v3        
         with:
           cmdline-tools-version: 9123335
-          packages: 'platforms;android-30 ndk;27.3.13750724'
+          packages: 'platforms;android-36 build-tools;36.0.0 ndk;27.3.13750724'
       - name: Configure path to NDK
         run: sed -i -e 's,NDK = .*,NDK = /usr/local/lib/android/sdk/ndk/27.3.13750724,g' sys/android/Makefile.src
       - name: Build native Android application
