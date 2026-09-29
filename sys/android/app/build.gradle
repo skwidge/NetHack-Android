@@ -2,6 +2,17 @@ plugins {
   id 'com.android.application'
 }
 
+// Release signing: reads keystore.properties (git-ignored) or NETHACK_* env vars.
+// Without either, the release build is left unsigned (as CI does).
+def signingProps = new Properties()
+def signingFile = rootProject.file('keystore.properties')
+if (signingFile.exists()) {
+  signingFile.withInputStream { signingProps.load(it) }
+}
+def signingValue = { String key ->
+  signingProps.getProperty(key) ?: System.getenv('NETHACK_' + key.toUpperCase())
+}
+
 android {
 
   // Kept as the original package so the generated R class stays com.tbd.NetHack.R
@@ -19,6 +30,26 @@ android {
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  signingConfigs {
+    release {
+      def path = signingValue('storeFile')
+      if (path) {
+        storeFile file(path)
+        storePassword signingValue('storePassword')
+        keyAlias signingValue('keyAlias')
+        keyPassword signingValue('keyPassword')
+      }
+    }
+  }
+
+  buildTypes {
+    release {
+      if (signingConfigs.release.storeFile != null) {
+        signingConfig signingConfigs.release
+      }
+    }
   }
 
   lint {
