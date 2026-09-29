@@ -126,7 +126,8 @@ public class ForkFront extends Activity
 	@TargetApi(Build.VERSION_CODES.M)
 	public void ensureReadWritePermissions(final RequestExternalStorageResult requestExternalStorageResult)
 	{
-		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+		// From Android 10 the game data lives in app-specific external storage, which needs no permission
+		if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
 		{
 			if(checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED)
 			{
