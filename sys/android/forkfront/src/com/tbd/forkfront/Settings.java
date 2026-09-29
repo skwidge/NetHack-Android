@@ -26,6 +26,7 @@ public class Settings extends PreferenceActivity implements OnSharedPreferenceCh
 		super.onCreate(savedInstanceState);
 
 		addPreferencesFromResource(R.xml.preferences);
+		Insets.applyTo(findViewById(android.R.id.content));
 	}
 
 	// ____________________________________________________________________________________
