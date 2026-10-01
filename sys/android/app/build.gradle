@@ -15,16 +15,15 @@ def signingValue = { String key ->
 
 android {
 
-  // Kept as the original package so the generated R class stays com.tbd.NetHack.R
   namespace 'com.tbd.NetHack'
   compileSdk 36
 
   defaultConfig {
-    applicationId 'com.skwidge.nethack'
+    applicationId 'com.tbd.NetHack'
     minSdk 21
     targetSdk 36
-    versionName '3.6.7-3'
-    versionCode 3673
+    versionName '3.6.7-2'
+    versionCode 3672
   }
 
   compileOptions {
