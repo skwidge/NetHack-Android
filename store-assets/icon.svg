@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="torch" cx="50%" cy="50%" r="62%">
+      <stop offset="0" stop-color="#4a3216"/>
+      <stop offset="0.5" stop-color="#1c140b"/>
+      <stop offset="1" stop-color="#0b0907"/>
+    </radialGradient>
+    <filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="16" result="b"/>
+      <feFlood flood-color="#ff9a2e" flood-opacity="0.85"/>
+      <feComposite in2="b" operator="in" result="g"/>
+      <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" fill="url(#torch)"/>
+  <g font-family="DejaVu Sans Mono" font-weight="bold" font-size="44" fill="#b8a27c" text-anchor="middle">
+    <text x="40" y="40" fill-opacity="0.27">.</text><text x="94" y="40" fill-opacity="0.40">.</text><text x="148" y="40" fill-opacity="0.51">.</text><text x="202" y="40" fill-opacity="0.59">.</text><text x="256" y="40" fill-opacity="0.61">.</text><text x="310" y="40" fill-opacity="0.59">.</text><text x="364" y="40" fill-opacity="0.51">.</text><text x="418" y="40" fill-opacity="0.40">.</text><text x="472" y="40" fill-opacity="0.27">.</text><text x="40" y="94" fill-opacity="0.40">.</text><text x="94" y="94" fill-opacity="0.56">.</text><text x="148" y="94" fill-opacity="0.69">.</text><text x="364" y="94" fill-opacity="0.69">.</text><text x="418" y="94" fill-opacity="0.56">.</text><text x="472" y="94" fill-opacity="0.40">.</text><text x="40" y="148" fill-opacity="0.51">.</text><text x="94" y="148" fill-opacity="0.69">.</text><text x="418" y="148" fill-opacity="0.69">.</text><text x="472" y="148" fill-opacity="0.51">.</text><text x="40" y="202" fill-opacity="0.59">.</text><text x="472" y="202" fill-opacity="0.59">.</text><text x="40" y="256" fill-opacity="0.61">.</text><text x="472" y="256" fill-opacity="0.61">.</text><text x="40" y="310" fill-opacity="0.59">.</text><text x="472" y="310" fill-opacity="0.59">.</text><text x="40" y="364" fill-opacity="0.51">.</text><text x="94" y="364" fill-opacity="0.69">.</text><text x="418" y="364" fill-opacity="0.69">.</text><text x="472" y="364" fill-opacity="0.51">.</text><text x="40" y="418" fill-opacity="0.40">.</text><text x="94" y="418" fill-opacity="0.56">.</text><text x="148" y="418" fill-opacity="0.69">.</text><text x="364" y="418" fill-opacity="0.69">.</text><text x="418" y="418" fill-opacity="0.56">.</text><text x="472" y="418" fill-opacity="0.40">.</text><text x="40" y="472" fill-opacity="0.27">.</text><text x="94" y="472" fill-opacity="0.40">.</text><text x="148" y="472" fill-opacity="0.51">.</text><text x="202" y="472" fill-opacity="0.59">.</text><text x="256" y="472" fill-opacity="0.61">.</text><text x="310" y="472" fill-opacity="0.59">.</text><text x="364" y="472" fill-opacity="0.51">.</text><text x="418" y="472" fill-opacity="0.40">.</text><text x="472" y="472" fill-opacity="0.27">.</text>
+  </g>
+  <text x="256" y="256" dy="0.36em" font-family="DejaVu Sans Mono" font-weight="bold" font-size="340"
+        fill="#fff3d6" text-anchor="middle" filter="url(#glow)">@</text>
+</svg>
