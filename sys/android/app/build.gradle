@@ -18,13 +18,15 @@ android {
   // Kept as the original package so the generated R class stays com.tbd.NetHack.R
   namespace 'com.tbd.NetHack'
   compileSdk 36
+  // Must match the NDK the Makefile uses, so Gradle can strip libnethack.so
+  ndkVersion '27.3.13750724'
 
   defaultConfig {
     applicationId 'com.skwidge.nethack'
     minSdk 24
     targetSdk 36
-    versionName '3.6.7-3'
-    versionCode 3673
+    versionName '3.6.7-4'
+    versionCode 3674
   }
 
   compileOptions {
@@ -48,6 +50,10 @@ android {
     release {
       if (signingConfigs.release.storeFile != null) {
         signingConfig signingConfigs.release
+      }
+      // Ship a stripped libnethack.so and keep its symbols in the bundle for Play
+      ndk {
+        debugSymbolLevel 'FULL'
       }
     }
   }
