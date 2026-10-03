@@ -115,7 +115,7 @@ public class ForkFront extends Activity
 				};
 
 			nhState = new NH_State(this, decoder);
-			new UpdateAssets(this, onAssetsReady).execute((Void[])null);
+			new UpdateAssets(this, assetsReadyFor(nhState)).execute((Void[])null);
 		}
 		else
 		{
@@ -195,20 +195,29 @@ public class ForkFront extends Activity
 	}
 
 	// ____________________________________________________________________________________
-	private UpdateAssets.Listener onAssetsReady = new UpdateAssets.Listener()
+	// If the activity is recreated while the assets are being copied, the old copy finishes
+	// after a new NH_State has replaced this one. Only the copy started for the current state
+	// may start the game, or the game thread would be started twice.
+	private UpdateAssets.Listener assetsReadyFor(final NH_State state)
 	{
-		@Override
-		public void onAssetsReady(File path)
+		return new UpdateAssets.Listener()
 		{
-			// Create save directory if it doesn't exist
-			File nhSaveDir = new File(path, "save");
-			if(!nhSaveDir.exists())
-				nhSaveDir.mkdir();
+			@Override
+			public void onAssetsReady(File path)
+			{
+				if(state != nhState)
+					return;
 
-			PreferenceManager.setDefaultValues(ForkFront.this, R.xml.preferences, false);
-			nhState.startNetHack(path.getAbsolutePath());
-		}
-	};
+				// Create save directory if it doesn't exist
+				File nhSaveDir = new File(path, "save");
+				if(!nhSaveDir.exists())
+					nhSaveDir.mkdir();
+
+				PreferenceManager.setDefaultValues(ForkFront.this, R.xml.preferences, false);
+				state.startNetHack(path.getAbsolutePath());
+			}
+		};
+	}
 
 	// ____________________________________________________________________________________
 	@Override
