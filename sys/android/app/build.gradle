@@ -25,8 +25,8 @@ android {
     applicationId 'com.skwidge.nethack'
     minSdk 24
     targetSdk 36
-    versionName '3.6.7-5'
-    versionCode 3675
+    versionName '3.6.7-6'
+    versionCode 3676
   }
 
   compileOptions {
