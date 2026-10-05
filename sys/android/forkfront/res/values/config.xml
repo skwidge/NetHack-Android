@@ -15,4 +15,6 @@
 	<bool name="oldStatusMode">false</bool>
 	<!-- Tileset used until the player picks one: TTY (text) or a tileValues entry -->
 	<string name="defaultTileset">TTY</string>
+	<!-- Map tile height in dp until the player zooms; 0 draws tiles at their pixel size -->
+	<integer name="defaultTileSizeDp">0</integer>
 </resources>
