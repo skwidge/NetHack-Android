@@ -13,4 +13,6 @@
 	<string name="hearseRoles"></string>
 	<bool name="hearseLittleEndian">false</bool>
 	<bool name="oldStatusMode">false</bool>
+	<!-- Tileset used until the player picks one: TTY (text) or a tileValues entry -->
+	<string name="defaultTileset">TTY</string>
 </resources>
