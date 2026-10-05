@@ -12,4 +12,5 @@
 	<string name="hearseRoles">Arc|Bar|Cav|Hea|Kni|Mon|Pri|Rog|Ran|Sam|Tou|Val|Wiz</string>
 	<string name="hearseNethackVersion">54</string>
 	<string name="defaultTileset">default_32</string>
+	<integer name="defaultTileSizeDp">24</integer>
 </resources>

@@ -575,12 +575,26 @@ public class NHW_Map implements NH_Window
 		float zoomLevel = 0;
 		try
 		{
-			zoomLevel = prefs.getFloat("zoomLevel", 0.f);
+			if(prefs.contains("zoomLevel"))
+				zoomLevel = prefs.getFloat("zoomLevel", 0.f);
+			else
+				zoomLevel = getDefaultZoomLevel();
 		}
 		catch(Exception e)
 		{
 		}
 		zoom(zoomLevel - mScaleCount);
+	}
+
+	// ____________________________________________________________________________________
+	// The zoom used until the player zooms: tiles defaultTileSizeDp tall on any screen
+	// density, or the unscaled tile size if that is 0.
+	private float getDefaultZoomLevel() {
+		int tileSizeDp = mContext.getResources().getInteger(R.integer.defaultTileSizeDp);
+		if(tileSizeDp <= 0)
+			return 0;
+		float scale = tileSizeDp * mDisplayDensity / mUI.getBaseTileHeight();
+		return (float)(Math.log(scale) / Math.log(ZOOM_BASE));
 	}
 
 	// ____________________________________________________________________________________ // 
